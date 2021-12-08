@@ -11,21 +11,30 @@ source:
   sha256: ff3b5a1ac0010d0967869f723e687d42cabc7dccf33b14934c92aa5168d260b3
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: True  # [not win]
+  skip: True  # [py<38]
 
 requirements:
   host:
     - pip
     - python
     - sphinx
+    - setuptools
   run:
     - python
 
 test:
   imports:
     - pyreadline3
+    - pyreadline3.clipboard
+    - pyreadline3.configuration
+    - pyreadline3.console
+    - pyreadline3.keysyms
+    - pyreadline3.lineeditor
+    - pyreadline3.modes
+    - pyreadline3.test
   commands:
     - pip check
   requires:
@@ -36,6 +45,7 @@ about:
   summary: A python implementation of GNU readline.
   license: BSD-3-Clause
   license_file: doc/COPYING
+  dev_url: https://github.com/brgirgis/pyreadline3
 
 extra:
   recipe-maintainers:
