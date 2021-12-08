@@ -44,6 +44,7 @@ about:
   home: https://pypi.python.org/pypi/pyreadline3/
   summary: A python implementation of GNU readline.
   license: BSD-3-Clause
+  license_family: BSD
   license_file: doc/COPYING
   dev_url: https://github.com/brgirgis/pyreadline3
 
