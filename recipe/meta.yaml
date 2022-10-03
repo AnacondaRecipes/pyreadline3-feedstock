@@ -1,5 +1,5 @@
 {% set name = "pyreadline3" %}
-{% set version = "3.3" %}
+{% set version = "3.4.1" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyreadline3-{{ version }}.tar.gz
-  sha256: ff3b5a1ac0010d0967869f723e687d42cabc7dccf33b14934c92aa5168d260b3
+  sha256: 6f3d1f7b8a31ba32b73917cefc1f28cc660562f39aea8646d30bd6eff21f7bae
 
 build:
   number: 0
@@ -46,7 +46,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: doc/COPYING
-  dev_url: https://github.com/brgirgis/pyreadline3
+  dev_url: https://github.com/pyreadline3/pyreadline3
 
 extra:
   recipe-maintainers:
