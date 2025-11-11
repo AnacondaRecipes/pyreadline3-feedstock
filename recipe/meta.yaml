@@ -6,20 +6,19 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pyreadline3-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 8d57d53039a1c75adba8e50dd3d992b28143480816187ea5efbd5c78e6c885b7
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   skip: true  # [not win]
-  skip: true  # [py<35]
+  skip: true  # [py<38]
 
 requirements:
   host:
     - pip
     - python
-    - sphinx
     - setuptools
     - setuptools-scm
     - setuptools-git-versioning
@@ -27,6 +26,8 @@ requirements:
     - python
 
 test:
+  source_files:
+    - tests
   imports:
     - pyreadline3
     - pyreadline3.clipboard
@@ -35,19 +36,23 @@ test:
     - pyreadline3.keysyms
     - pyreadline3.lineeditor
     - pyreadline3.modes
-    - pyreadline3.test
-  commands:
-    - pip check
   requires:
     - pip
+    - pytest
+  commands:
+    - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    - pytest -ra -v --tb=short tests
 
 about:
-  home: https://pypi.org/pypi/pyreadline3/
-  summary: A python implementation of GNU readline.
+  home: https://pypi.org/pypi/pyreadline3
+  summary: A python implementation of GNU readline
+  description: Python implementation of GNU readline functionality
   license: BSD-3-Clause
   license_family: BSD
   license_file: doc/COPYING
   dev_url: https://github.com/pyreadline3/pyreadline3
+  doc_url: https://github.com/pyreadline3/pyreadline3
 
 extra:
   recipe-maintainers:
