@@ -1,19 +1,18 @@
 {% set name = "pyreadline3" %}
-{% set version = "3.5.4" %}
+{% set version = "3.5.6" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8d57d53039a1c75adba8e50dd3d992b28143480816187ea5efbd5c78e6c885b7
+  sha256: 61e53218b99656091ddb077df9e71f25850e72e030b6183b39c9b7e6e4f4a9bf
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
-  skip: true  # [not win]
-  skip: true  # [py<38]
+  skip: true  # [(not win) or py<38]
 
 requirements:
   host:
@@ -52,7 +51,7 @@ about:
   license_family: BSD
   license_file: doc/COPYING
   dev_url: https://github.com/pyreadline3/pyreadline3
-  doc_url: https://github.com/pyreadline3/pyreadline3
+  doc_url: https://github.com/pyreadline3/pyreadline3/blob/master/README.md
 
 extra:
   recipe-maintainers:
