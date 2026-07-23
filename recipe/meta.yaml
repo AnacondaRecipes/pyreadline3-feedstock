@@ -12,8 +12,7 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
-  skip: true  # [not win]
-  skip: true  # [py<38]
+  skip: true  # [(not win) or py<38]
 
 requirements:
   host:
