@@ -21,7 +21,6 @@ requirements:
     - python
     - setuptools
     - setuptools-scm
-    - wheel
     - setuptools-git-versioning
   run:
     - python
