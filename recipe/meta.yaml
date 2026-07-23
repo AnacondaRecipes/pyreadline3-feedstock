@@ -2,7 +2,7 @@
 {% set version = "3.5.6" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
@@ -21,6 +21,7 @@ requirements:
     - python
     - setuptools
     - setuptools-scm
+    - wheel
     - setuptools-git-versioning
   run:
     - python
@@ -52,7 +53,7 @@ about:
   license_family: BSD
   license_file: doc/COPYING
   dev_url: https://github.com/pyreadline3/pyreadline3
-  doc_url: https://github.com/pyreadline3/pyreadline3
+  doc_url: https://github.com/pyreadline3/pyreadline3/blob/master/README.md
 
 extra:
   recipe-maintainers:
